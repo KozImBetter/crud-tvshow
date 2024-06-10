@@ -23,7 +23,7 @@ class Poster
         $stmtPoster = MyPDO::getInstance()->prepare(
             <<<'SQL'
     SELECT id, jpeg
-    FROM artist 
+    FROM poster 
     WHERE id = :posterId
 SQL
         );
