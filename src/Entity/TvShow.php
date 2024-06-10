@@ -10,6 +10,9 @@ class TvShow
 {
     private int $id;
     private string $name;
+    private string $originalName;
+    private string $overview;
+    private int $posterId;
     public function getId(): int
     {
         return $this->id;
@@ -17,6 +20,18 @@ class TvShow
     public function getName(): string
     {
         return $this->name;
+    }
+    public function getOriginalName(): string
+    {
+        return $this->originalName;
+    }
+    public function getOverview(): string
+    {
+        return $this->overview;
+    }
+    public function getPosterId(): int
+    {
+        return $this->posterId;
     }
     public static function findById(int $id): TvShow
     {
