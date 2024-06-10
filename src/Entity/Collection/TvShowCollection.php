@@ -10,13 +10,13 @@ use PDO;
 
 class TvShowCollection
 {
-    /** Méthode retournant un tableau contenant tous les artistes
+    /** Méthode retournant un tableau contenant tous les shows tv
      * triés par ordre alphabétique.
      * @return TvShow[]
      */
     public static function findAll(): array
     {
-        $artiste = MyPDO::getInstance()->prepare(
+        $tvShow = MyPDO::getInstance()->prepare(
             <<<'SQL'
 SELECT id, name
 FROM tvshow
@@ -24,8 +24,8 @@ ORDER BY name
 SQL
         );
 
-        $artiste->execute();
+        $tvShow->execute();
 
-        return $artiste->fetchAll(PDO::FETCH_CLASS, TvShow::class);
+        return $tvShow->fetchAll(PDO::FETCH_CLASS, TvShow::class);
     }
 }
