@@ -2,6 +2,8 @@
 
 namespace Entity;
 
+use Database\MyPdo;
+
 class Poster
 {
     private int $id;
@@ -16,5 +18,21 @@ class Poster
     {
         return $this->jpeg;
     }
+    public static function findById(int $id): Poster
+    {
+        $stmtPoster = MyPDO::getInstance()->prepare(
+            <<<'SQL'
+    SELECT id, jpeg
+    FROM artist 
+    WHERE id = :posterId
+SQL
+        );
 
+        $stmtPoster->execute([':posterId' => $id]);
+
+        if (($poster = $stmtPoster->fetchObject(Poster::class)) === false) {
+            throw new Exception\EntityNotFoundException();
+        }
+        return $poster;
+    }
 }
