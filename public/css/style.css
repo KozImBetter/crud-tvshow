@@ -1,0 +1,33 @@
+html {
+    margin: 0;
+    max-width: 800px;
+}
+
+header {
+    display: flex;
+    flex-grow: 1;
+    align-content: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: scroll;
+}
+
+.serie {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    display: flex;
+    flex-grow: 1;
+}
+@media only screen and (max-width: 600px) {
+
+    .list:not(.serie) .list:nth-child(2n) {
+        flex-direction: row-reverse;
+    }
+}
