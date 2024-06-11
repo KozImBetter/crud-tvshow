@@ -48,7 +48,7 @@ class TvShow
 SQL
         );
 
-        $stmtTvShow->execute([':posterId' => $id]);
+        $stmtTvShow->execute([':tvshowId' => $id]);
 
         if (($season = $stmtTvShow->fetchObject(TvShow::class)) === false) {
             throw new Exception\EntityNotFoundException();
