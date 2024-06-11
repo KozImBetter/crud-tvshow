@@ -17,10 +17,10 @@ foreach ($allTvShow as $tvShow) {
     $poster = $tvShow->getPosterId();
     $webPage->appendContent(<<<HTML
       <a href="serie.php?seriesId={$tvShow->getId()}" class="tvshow">
-        <img class="poster" src="poster.php?posterId=$poster"/>
-        <div class="serie">
-            <div class="title">{$webPage->escapeString($tvShow->getName())}</div>
-            <div class="description">{$webPage->escapeString($tvShow->getOverview())}</div>
+        <img class="tvshow__image_poster" src="poster.php?posterId=$poster"/>
+        <div class="tvshow__series">
+            <div class="tvshow__title">{$webPage->escapeString($tvShow->getName())}</div>
+            <div class="tvshow__description">{$webPage->escapeString($tvShow->getOverview())}</div>
         </div>
       </a>
 HTML);
