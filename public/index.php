@@ -16,7 +16,7 @@ $webPage->appendContent("<ol>\n");
 foreach ($allTvShow as $tvShow) {
     $poster = $tvShow->getPosterId();
     $webPage->appendContent(<<<HTML
-      <a href="serie.php?seriresId={$tvShow->getId()}" class="list">
+      <a href="serie.php?seriesId={$tvShow->getId()}" class="list">
         <img class="poster" src="poster.php?posterId=$poster"/>
         <div class="serie">
             <div class="title">{$webPage->escapeString($tvShow->getName())}</div>
