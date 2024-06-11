@@ -3,12 +3,16 @@
 namespace Entity\Collection;
 
 use Database\MyPdo;
+use Entity\Exception\EntityNotFoundException;
 use Entity\Season;
 use PDO;
 
-
 class SeasonCollection
 {
+    /**
+    * @param int $tvShowId
+    * @return Season[]
+     */
     public static function findByTvShowId(int $tvShowId): array
     {
         $season = MyPDO::getInstance()->prepare(
