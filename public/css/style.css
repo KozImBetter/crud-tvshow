@@ -1,33 +1,81 @@
 html {
     margin: 0;
-    max-width: 800px;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    height: 100%;
+    box-sizing: border-box;
 }
 
 header {
     display: flex;
     flex-grow: 1;
+    text-align: center;
+    border-style: solid;
+    align-content: center;
+    justify-content: center;
+}
+
+.content {
+    display: flex;
+    overflow: scroll;
+    height: 100%;
+}
+
+div .list {
+    display: flex;
+    flex-direction: row;
+    overflow-y: scroll;
+    border-style: solid;
     align-content: center;
 }
 
-body {
+ol {
     display: flex;
     flex-direction: column;
-    flex-grow: 1;
-    overflow: scroll;
+    gap: 10px;
+    padding: 10px;
 }
 
-.serie {
+a {
+    text-decoration: black;
+    color: black;
+    align-content: space-between;
+}
+
+.tvshow {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: lightgrey solid ;
+    align-items: center;
+}
+
+.tvshow__image_poster {
+    height: 230px;
+    width: 150px;
+}
+
+.tvshow__series {
     display: flex;
     flex-direction: column;
+    gap: 20px;
 }
 
 footer {
     display: flex;
-    flex-grow: 1;
+    border-style: solid;
 }
-@media only screen and (max-width: 600px) {
 
-    .list:not(.serie) .list:nth-child(2n) {
+@media only screen and (min-width: 600px) {
+
+    .tvshow:not(.serie) .tvshow:nth-child(2n) {
         flex-direction: row-reverse;
     }
 }
