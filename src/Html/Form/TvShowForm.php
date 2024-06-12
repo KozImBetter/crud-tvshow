@@ -70,7 +70,7 @@ class TvShowForm
         return  <<<HTML
         <h1>{$this->tvShow->getName()}</h1>
             <form method="post" action="{$action}">
-                <input name="id" type="hidden" value="{$this->escapeString($this->tvShow->getId())}">
+                <input name="id" type="hidden" value="{$this->tvShow->getId()}">
                 
                     <div class="F_name">
                         <label for="nom">Nom: </label>
@@ -91,10 +91,7 @@ class TvShowForm
                         <label for="description">Description: </label>
                         <input name="overview" type="text" value="{$this->escapeString($this->tvShow->getOverview())}" required>
                     </div>
-                    
-                    <div class="F_posterId">
-                        <label for="id_poster">Nom: </label>
-                        <input name="posterId" type="text" value="{$this->tvShow->getPosterId()}" required>
+                        <input name="posterId" type="hidden" value="{$this->tvShow->getPosterId()}">
                     </div>
                 <button type="submit">Enregistrer</button>
             </form>
