@@ -32,6 +32,8 @@ try {
     );
 
     $webPage->appendContent(<<<HTML
+      <a class ="tvshow__change" href="admin/tvShow-form.php?tvShowId={$tvShow->getId()}">Modifier la série</a>
+      <a class ="tvshow__change" href="admin/tvShow-delete.php?tvShowId={$tvShow->getId()}">Supprimer la série</a>
       <div class="tvshow_presentation">
         <img class="tvshow__image_poster" src="poster.php?posterId=$posterId" alt="Poster de la série {$webPage->escapeString($tvShow->getName())}"/>
         <div class="tvshow__series">
