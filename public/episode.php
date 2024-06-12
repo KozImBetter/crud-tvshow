@@ -22,11 +22,11 @@ try {
     $allEpisode = EpisodeCollection::findBySeasonId(intval($_GET['seasonId']));
 
     $webPage->appendContent(<<<HTML
-      <div class="episode">
-        <img class="episode__image_poster" src="poster.php?posterId={$season->getPosterId()}" alt="Poster de la série {$webPage->escapeString((TvShow::findById($season->getTvShowId()))->getName())}"/>
-        <div class="episode__series">
-            <a class="episode__tvshow_title" href="serie.php?seriesId={$season->getTvShowId()}">{$webPage->escapeString((TvShow::findById($season->getTvShowId()))->getName())}</a>
-            <div class="episode_season__title">{$webPage->escapeString($season->getName())}</div>
+      <div class="season">
+        <img class="season__image_poster" src="poster.php?posterId={$season->getPosterId()}" alt="Poster de la série {$webPage->escapeString((TvShow::findById($season->getTvShowId()))->getName())}"/>
+        <div class="season__series">
+            <a class="season__tvshow_title" href="serie.php?seriesId={$season->getTvShowId()}">{$webPage->escapeString((TvShow::findById($season->getTvShowId()))->getName())}</a>
+            <div class="season_season__title">{$webPage->escapeString($season->getName())}</div>
         </div>
       </div>
 HTML);
