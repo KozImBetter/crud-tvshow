@@ -8,5 +8,13 @@
 }
 
 .tvshow__genre {
-    border: lightgray dashed;
+    padding: 3px;
+    border: lightgray outset;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.tvshow__genre:hover {
+    border: lightgray inset;
+    background-color: lightgrey;
 }

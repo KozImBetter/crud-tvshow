@@ -85,6 +85,10 @@ a {
     gap: 30px;
 }
 
+.tvshow__series:hover{
+
+}
+
 .tvshow__series_numbering {
     display: flex;
     flex-direction: column;
@@ -120,11 +124,14 @@ a {
 .tvshow:not(.tvshow__image_poster):hover {
     background-color: navajowhite;
     transition: ease-in-out 25ms;
+    transform: scale(1.01);
 }
 
 .seasons:hover {
     background-color: navajowhite;
     transition: ease-in-out 25ms;
+    transform: scale(1.01);
+
 }
 
 footer {

@@ -31,7 +31,8 @@ ol {
 
 .episode__series:hover {
     background-color: bisque;
-    transition: ease-in-out 25ms;
+    transition: linear 5ms;
+    transform: scale(1.01);
 }
 
 .episode__numbering {
