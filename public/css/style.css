@@ -2,6 +2,7 @@ html {
     margin: 0;
     height: 100%;
     box-sizing: border-box;
+
 }
 
 body {
@@ -17,9 +18,9 @@ header {
     display: flex;
     flex-grow: 1;
     text-align: center;
-    border-style: solid;
     align-content: center;
     justify-content: center;
+    background-color: burlywood;
 }
 
 .content {
@@ -30,10 +31,11 @@ header {
 
 div .list {
     display: flex;
-    flex-direction: row;
+    flex-grow: 1;
+    flex-direction: column;
     overflow-y: scroll;
-    border-style: solid;
     align-content: center;
+    gap: 10px;
 }
 
 ol {
@@ -49,7 +51,15 @@ a {
     align-content: space-between;
 }
 
-.tvshow {
+.tvshow{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: lightgrey solid ;
+    align-items: center;
+}
+
+.tvshow_presentation{
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -64,18 +74,54 @@ a {
 
 .tvshow__series {
     display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.tvshow__series_numbering {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.tvshow__title_serie {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 5px;
+}
+
+.tvshow__title_original {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-right: 5px;
+}
+
+.seasons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.seasons__series {
+    display: flex;
     flex-direction: column;
     gap: 20px;
+    align-content: center;
+    justify-content: center;
+}
+
+.tvshow:not(.tvshow__image_poster):hover {
+    background-color: navajowhite;
+    transition: ease-in-out 25ms;
+}
+
+.seasons:hover {
+    background-color: navajowhite;
+    transition: ease-in-out 25ms;
 }
 
 footer {
     display: flex;
-    border-style: solid;
-}
-
-@media only screen and (min-width: 600px) {
-
-     .list a:nth-child(2n) {
-        flex-direction: row-reverse;
-    }
+    background-color: lightgrey;
 }

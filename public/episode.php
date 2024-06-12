@@ -15,6 +15,8 @@ try {
 
     $webPage = new AppWebPage();
 
+    $webPage->appendCssUrl("/css/episode.css");
+
     $webPage->setTitle("Séries TV: {$webPage->escapeString((TvShow::findById($season->getTvShowId()))->getName())} - {$webPage->escapeString($season->getName())}");
 
     $webPage->appendContent("<ol>\n");
@@ -31,15 +33,18 @@ try {
       </div>
 HTML);
 
+
     foreach ($allEpisode as $episode) {
         $webPage->appendContent(<<<HTML
       <div class="episode">
         <div class="episode__series">
-            <div class="episode__number">{$webPage->escapeString((string)$episode->getEpisodeNumber())}</div>
-            <div class="episode__title">{$webPage->escapeString($episode->getName())}</div>
+            <div class="episode__numbering">
+                <div class="episode__number">{$webPage->escapeString((string)$episode->getEpisodeNumber())}-</div>
+                <div class="episode__title">{$webPage->escapeString($episode->getName())}</div>
+            </div>
             <div class="episode__description">{$webPage->escapeString($episode->getOverview())}</div>
         </div>
-      </a>
+      </div>
 HTML);
     }
 
