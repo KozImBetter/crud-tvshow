@@ -45,7 +45,7 @@ class Season
 SQL
         );
 
-        $stmtSeason->execute([':posterId' => $id]);
+        $stmtSeason->execute([':seasonId' => $id]);
 
         if (($season = $stmtSeason->fetchObject(Season::class)) === false) {
             throw new Exception\EntityNotFoundException();
