@@ -37,6 +37,7 @@ $webPage->appendCssUrl("/css/index.css");
 $webPage->appendCssUrl("/css/filter.css");
 $webPage->appendCssUrl("/css/modification.css");
 
+$webPage->appendCssUrl("/css/index.css");
 
 foreach ($allTvShow as $tvShow) {
     $poster = $tvShow->getPosterId();
