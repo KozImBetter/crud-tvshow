@@ -7,7 +7,6 @@ use PDO;
 
 class Genre
 {
-
     private int $id;
     private string $name;
     public function getId(): int
@@ -19,18 +18,21 @@ class Genre
     {
         return $this->name;
     }
-    public static function findById(int $genreId) : array {
-        $genre = MyPDO::getInstance()->prepare(
+    public static function findById(int $genreId): Genre
+    {
+        $stmtGenre = MyPDO::getInstance()->prepare(
             <<<'SQL'
             SELECT id, name
             FROM genre
             WHERE id = :genreId
-            ORDER BY name
             SQL
         );
 
-        $genre->execute([':genreId' => $genreId]);
+        $stmtGenre->execute([':genreId' => $genreId]);
 
-        return $genre->fetchAll(PDO::FETCH_CLASS, genre::class);
+        if (($genre = $stmtGenre->fetchObject(Genre::class)) === false) {
+            throw new Exception\EntityNotFoundException();
+        }
+        return $genre;
     }
 }
