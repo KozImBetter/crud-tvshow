@@ -37,7 +37,7 @@ HTML);
     foreach ($seasons as $season) {
         $posterId = $season->getPosterId();
         $webPage->appendContent(<<<HTML
-      <a href="episode.php?episodesId={$season->getId()}" class="seasons">
+      <a href="episode.php?seasonId={$season->getId()}" class="seasons">
         <img class="seasons__image_poster" src="poster.php?posterId=$posterId" alt="Poster de la saison {$webPage->escapeString($season->getName())}"/>
         <div class="seasons__series">
             <div class="seasons__title">{$webPage->escapeString($season->getName())}</div>
