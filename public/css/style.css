@@ -51,15 +51,7 @@ a {
     align-content: space-between;
 }
 
-.tvshow{
-    display: flex;
-    flex-direction: row;
-    gap: 10px;
-    border: lightgrey solid ;
-    align-items: center;
-}
-
-.tvshow_presentation{
+.tvshow {
     display: flex;
     flex-direction: row;
     gap: 10px;
@@ -76,13 +68,12 @@ a {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
-    gap: 30px;
+    gap: 20px;
 }
 
-.tvshow__series_numbering {
+footer {
     display: flex;
-    flex-direction: column;
-    gap: 5px;
+    background-color: lightgrey;
 }
 
 .tvshow__title_serie {
@@ -101,6 +92,7 @@ a {
     display: flex;
     flex-direction: row;
     gap: 10px;
+    background-color: bisque;
 }
 
 .seasons__series {
@@ -114,14 +106,4 @@ a {
 .tvshow:not(.tvshow__image_poster):hover {
     background-color: navajowhite;
     transition: ease-in-out 25ms;
-}
-
-.seasons:hover {
-    background-color: navajowhite;
-    transition: ease-in-out 25ms;
-}
-
-footer {
-    display: flex;
-    background-color: lightgrey;
 }
