@@ -13,10 +13,15 @@ $webPage = new AppWebPage();
 
 $webPage->setTitle("Séries TV");
 
+$webPage->appendCssUrl("/css/filter.css");
+
+$webPage->appendContent(<<<HTML
+ <div class="filter">
+ HTML);
 foreach ($allGenre as $genre) {
     $webPage->appendContent("<a href='indexSorted.php?genreId={$genre->getId()}' class='tvshow__genre'>{$genre->getName()}</a>");
 }
-$webPage->appendContent("<ol>\n");
+$webPage->appendContent("</div>\n<ol>\n");
 
 $webPage->appendCssUrl("/css/index.css");
 

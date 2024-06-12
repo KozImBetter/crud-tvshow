@@ -1,0 +1,11 @@
+.filter {
+    display: flex;
+    gap: 5%;
+    flex-grow: 1;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.tvshow__genre {
+    border: lightgray dashed;
+}
