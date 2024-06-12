@@ -8,36 +8,67 @@ use Database\MyPdo;
 
 class TvShow
 {
-    private int $id;
+    private ?int $id;
     private string $name;
     private string $originalName;
     private string $homepage;
     private string $overview;
     private int $posterId;
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
+    }
+    private function setId(?int $id): TvShow
+    {
+        $this->id = $id;
+        return $this;
     }
     public function getName(): string
     {
         return $this->name;
     }
+    public function setName(string $name): TvShow
+    {
+        $this->name = $name;
+        return $this;
+    }
     public function getOriginalName(): string
     {
         return $this->originalName;
+    }
+    public function setOriginalName(string $originalName): TvShow
+    {
+        $this->originalName = $originalName;
+        return $this;
     }
     public function getHomepage(): string
     {
         return $this->homepage;
     }
+    public function setHomepage(string $homepage): TvShow
+    {
+        $this->homepage = $homepage;
+        return $this;
+    }
     public function getOverview(): string
     {
         return $this->overview;
+    }
+    public function setOverview(string $overview): TvShow
+    {
+        $this->overview = $overview;
+        return $this;
     }
     public function getPosterId(): int
     {
         return $this->posterId;
     }
+    public function setPosterId(int $posterId): TvShow
+    {
+        $this->posterId = $posterId;
+        return $this;
+    }
+
     public static function findById(int $id): TvShow
     {
         $stmtTvShow = MyPDO::getInstance()->prepare(
@@ -55,4 +86,18 @@ SQL
         }
         return $season;
     }
+
+    public function delete(): TvShow
+    {
+        $deleteTvShow = MyPdo::getInstance()->prepare(
+            <<<SQL
+DELETE FROM tvshow
+WHERE id = :tvShowId
+SQL
+        );
+        $deleteTvShow->execute([':tvShowId' => $this->getId()]);
+        $this->setId(null);
+        return $this;
+    }
+
 }
