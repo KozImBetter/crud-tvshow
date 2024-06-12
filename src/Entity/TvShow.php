@@ -6,6 +6,10 @@ namespace Entity;
 
 use Database\MyPdo;
 
+use PDO;
+
+use function React\Promise\all;
+
 class TvShow
 {
     private ?int $id;
@@ -97,6 +101,64 @@ SQL
         );
         $deleteTvShow->execute([':tvShowId' => $this->getId()]);
         $this->setId(null);
+        return $this;
+    }
+
+    public function update(): TvShow
+    {
+        $saveTvShow = MyPdo::getInstance()->prepare(
+            <<<SQL
+UPDATE tvshow
+SET id = :id,
+    name = :name,
+    originalName = :originalName,
+    homepage = :homepage,
+    overview = :overview,
+    posterId = :posterId
+WHERE id = :id
+SQL
+        );
+        $saveTvShow->execute([':id' => $this->getId(), ':name' => $this->getName(), ':originalName' => $this->getOriginalName(),
+            ':homepage' => $this->getHomepage(), ':overview' => $this->getOverview(), ':posterId' => $this->getPosterId()]);
+        return $this;
+    }
+
+    public static function create(string $name, string $originalName, string $homepage, string $overview, int $posterId, ?int $id): TvShow
+    {
+        $tvShow = new TvShow();
+        $tvShow->setName($name);
+        $tvShow->setOriginalName($originalName);
+        $tvShow->setHomepage($homepage);
+        $tvShow->setOverview($overview);
+        $tvShow->setPosterId($posterId);
+        if (isset($id)) {
+            $tvShow->setId($id);
+        }
+        return $tvShow;
+    }
+
+    protected function insert(): TvShow
+    {
+        $insertTvShow = MyPdo::getInstance()->prepare(
+            <<<SQL
+INSERT INTO tvshow
+VALUES (:id,:name,:originalName,:homepage,:overview,:posterId)
+SQL
+        );
+        $insertTvShow->execute([':id' => $this->getId(), ':name' => $this->getName(), ':originalName' => $this->getOriginalName(),
+            ':homepage' => $this->getHomepage(), ':overview' => $this->getOverview(), ':posterId' => $this->getPosterId()]);
+        $this->setId(intval((MyPdo::getInstance()->lastInsertId())));
+        return $this;
+    }
+
+    public function save(): TvShow
+    {
+        if ($this->getId() === null) {
+            $this->insert();
+        } else {
+            $this->update();
+        }
+
         return $this;
     }
 
