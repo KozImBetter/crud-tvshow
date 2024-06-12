@@ -64,16 +64,20 @@ a {
     width: 150px;
 }
 
+.tvshow_presentation {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    border: lightgrey solid ;
+    align-items: center;
+    background-color: navajowhite;
+}
+
 .tvshow__series {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
     gap: 20px;
-}
-
-footer {
-    display: flex;
-    background-color: lightgrey;
 }
 
 .tvshow__title_serie {
@@ -92,7 +96,6 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 10px;
-    background-color: bisque;
 }
 
 .seasons__series {
@@ -106,4 +109,15 @@ footer {
 .tvshow:not(.tvshow__image_poster):hover {
     background-color: navajowhite;
     transition: ease-in-out 25ms;
+}
+
+.seasons:hover {
+    background-color: bisque;
+    transition: ease-in-out 25ms;
+}
+
+
+footer {
+    display: flex;
+    background-color: lightgrey;
 }
