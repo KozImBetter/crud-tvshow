@@ -39,7 +39,7 @@ HTML);
       <div class="episode">
         <div class="episode__series">
             <div class="episode__numbering">
-                <div class="episode__number">{$webPage->escapeString((string)$episode->getEpisodeNumber())}-</div>
+                <div class="episode__number">{$webPage->escapeString((string)$episode->getEpisodeNumber())}</div>
                 <div class="episode__title">{$webPage->escapeString($episode->getName())}</div>
             </div>
             <div class="episode__description">{$webPage->escapeString($episode->getOverview())}</div>
