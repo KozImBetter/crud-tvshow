@@ -1,4 +1,39 @@
-.episode {
+.season {
     display: flex;
     flex-direction: row;
+}
+
+.season__series {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    text-align: end;
+}
+
+.season__tvshow_title:hover {
+    text-decoration: blue underline;
+    transition: ease-in-out 25ms;
+}
+
+ol {
+    display: flex;
+    gap: 10px;
+}
+
+.episode__series {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    border: lightgray solid;
+}
+
+.episode__series:hover {
+    background-color: bisque;
+    transition: ease-in-out 25ms;
+}
+
+.episode__numbering {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
