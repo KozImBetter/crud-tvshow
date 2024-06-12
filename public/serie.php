@@ -19,21 +19,34 @@ try {
 
     $webPage = new AppWebPage();
 
+    $webPage->appendCssUrl("/css/filter.css");
+    $webPage->appendCssUrl("/css/modification.css");
+
     $webPage->setTitle("Séries TV: {$webPage->escapeString($tvShow->getName())}");
 
     $webPage->appendContent(
         <<<HTML
-        <div class="menu">
-                <a href="index.php" class="home">
-                    <img class="home_icon" src="/images/home_icon.png" alt="icon maison pour revenir à l'index"/>
-                </a>
-        </div>
+        <div class="icon">
+            <div class="menu">
+                    <a href="index.php" class="home">
+                        <img class="home_icon" src="/images/home_icon.png" alt="icon maison pour revenir à l'index"/>
+                    </a>
+            </div>
         HTML
     );
 
     $webPage->appendContent(<<<HTML
-      <a class ="tvshow__change" href="admin/tvShow-form.php?tvShowId={$tvShow->getId()}">Modifier la série</a>
-      <a class ="tvshow__change" href="admin/tvShow-delete.php?tvShowId={$tvShow->getId()}">Supprimer la série</a>
+          <div class="modif">
+              <a class ="tvshow__change" href="admin/tvShow-form.php?tvShowId={$tvShow->getId()}">
+                  <img class="home_icon" src="/images/modification_icon.png" alt="icon pour modifier la série"/>
+              </a>
+          </div>
+          <div class="delete"
+              <a class ="tvshow__change" href="admin/tvShow-delete.php?tvShowId={$tvShow->getId()}">
+                  <img class="home_icon" src="/images/trash_icon.png" alt="icon poubelle pour supprimer la série"/>
+              </a>
+          </div>
+      </div>
       <div class="tvshow_presentation">
         <img class="tvshow__image_poster" src="poster.php?posterId=$posterId" alt="Poster de la série {$webPage->escapeString($tvShow->getName())}"/>
         <div class="tvshow__series">
