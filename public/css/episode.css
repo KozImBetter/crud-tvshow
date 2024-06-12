@@ -18,6 +18,8 @@
 ol {
     display: flex;
     gap: 10px;
+    border: grey solid;
+    border-radius: 25px;
 }
 
 .episode__series {

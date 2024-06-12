@@ -13,6 +13,7 @@ $webPage = new AppWebPage();
 
 $webPage->setTitle("Séries TV");
 
+$webPage->appendCssUrl("/css/index.css");
 $webPage->appendCssUrl("/css/filter.css");
 
 $webPage->appendContent(<<<HTML
@@ -23,7 +24,7 @@ foreach ($allGenre as $genre) {
 }
 $webPage->appendContent("</div>\n<ol>\n");
 
-$webPage->appendCssUrl("/css/index.css");
+
 
 foreach ($allTvShow as $tvShow) {
     $poster = $tvShow->getPosterId();

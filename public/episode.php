@@ -19,6 +19,16 @@ try {
 
     $webPage->setTitle("Séries TV: {$webPage->escapeString((TvShow::findById($season->getTvShowId()))->getName())} - {$webPage->escapeString($season->getName())}");
 
+    $webPage->appendContent(
+        <<<HTML
+        <div class="menu">
+                <a href="index.php" class="home">
+                    <img class="home_icon" src="/images/home_icon.png" alt="icon maison pour revenir à l'index"/>
+                </a>
+        </div>
+        HTML
+    );
+
     $webPage->appendContent("<ol>\n");
 
     $allEpisode = EpisodeCollection::findBySeasonId(intval($_GET['seasonId']));

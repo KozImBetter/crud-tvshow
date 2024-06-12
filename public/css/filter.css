@@ -1,9 +1,10 @@
 .filter {
     display: flex;
-    gap: 5%;
     flex-grow: 1;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 .tvshow__genre {
