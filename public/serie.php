@@ -25,7 +25,7 @@ try {
       <div class="tvshow">
         <img class="tvshow__image_poster" src="poster.php?posterId=$posterId" alt="Poster de la série {$webPage->escapeString($tvShow->getName())}"/>
         <div class="tvshow__series">
-            <div class="tvshow__title">{$webPage->escapeString($tvShow->getName())}</div>
+            <div class="tvshow__title_serie">{$webPage->escapeString($tvShow->getName())}</div>
             <div class="tvshow__title_original">{$webPage->escapeString($tvShow->getOriginalName())}</div>
             <div class="tvshow__description">{$webPage->escapeString($tvShow->getOverview())}</div>
         </div>
