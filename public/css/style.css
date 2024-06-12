@@ -1,7 +1,8 @@
 html {
-    margin: 0;
+    margin: 0 auto;
     height: 100%;
     box-sizing: border-box;
+    max-width: 1500px;
 
 }
 
@@ -21,6 +22,11 @@ header {
     align-content: center;
     justify-content: center;
     background-color: burlywood;
+}
+
+.home_icon {
+    width: 100px;
+    height: 100px;
 }
 
 .content {
@@ -79,6 +85,10 @@ a {
     gap: 30px;
 }
 
+.tvshow__series:hover{
+
+}
+
 .tvshow__series_numbering {
     display: flex;
     flex-direction: column;
@@ -114,11 +124,14 @@ a {
 .tvshow:not(.tvshow__image_poster):hover {
     background-color: navajowhite;
     transition: ease-in-out 25ms;
+    transform: scale(1.01);
 }
 
 .seasons:hover {
     background-color: navajowhite;
     transition: ease-in-out 25ms;
+    transform: scale(1.01);
+
 }
 
 footer {

@@ -1,0 +1,20 @@
+.filter {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tvshow__genre {
+    padding: 3px;
+    border: lightgray outset;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.tvshow__genre:hover {
+    border: lightgray inset;
+    background-color: lightgrey;
+}

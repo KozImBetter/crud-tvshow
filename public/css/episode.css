@@ -18,6 +18,8 @@
 ol {
     display: flex;
     gap: 10px;
+    border: grey solid;
+    border-radius: 25px;
 }
 
 .episode__series {
@@ -29,7 +31,8 @@ ol {
 
 .episode__series:hover {
     background-color: bisque;
-    transition: ease-in-out 25ms;
+    transition: linear 5ms;
+    transform: scale(1.01);
 }
 
 .episode__numbering {

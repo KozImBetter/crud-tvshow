@@ -21,6 +21,16 @@ try {
 
     $webPage->setTitle("Séries TV: {$webPage->escapeString($tvShow->getName())}");
 
+    $webPage->appendContent(
+        <<<HTML
+        <div class="menu">
+                <a href="index.php" class="home">
+                    <img class="home_icon" src="/images/home_icon.png" alt="icon maison pour revenir à l'index"/>
+                </a>
+        </div>
+        HTML
+    );
+
     $webPage->appendContent(<<<HTML
       <div class="tvshow_presentation">
         <img class="tvshow__image_poster" src="poster.php?posterId=$posterId" alt="Poster de la série {$webPage->escapeString($tvShow->getName())}"/>
