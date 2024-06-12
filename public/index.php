@@ -13,17 +13,29 @@ $webPage = new AppWebPage();
 
 $webPage->setTitle("Séries TV");
 
-$webPage->appendCssUrl("/css/index.css");
-$webPage->appendCssUrl("/css/filter.css");
-
 $webPage->appendContent(<<<HTML
  <div class="filter">
  HTML);
-foreach ($allGenre as $genre) {
-    $webPage->appendContent("<a href='indexSorted.php?genreId={$genre->getId()}' class='tvshow__genre'>{$genre->getName()}</a>");
-}
-$webPage->appendContent("</div>\n<ol>\n");
 
+foreach ($allGenre as $genre) {
+    $webPage->appendContent("            <a href='indexSorted.php?genreId={$genre->getId()}' class='tvshow__genre'>{$genre->getName()}</a>\n");
+}
+
+$webPage->appendContent(
+    <<<HTML
+        </div>
+        <div class="add">
+            <a class='tvshow__add' href='admin/tvShow-form.php'>
+                 <img class="home_icon" src="/images/plus_icon.png" alt="icon plus pour ajouter une série"/>
+            </a>
+        </div>
+        <ol>
+HTML
+);
+
+$webPage->appendCssUrl("/css/index.css");
+$webPage->appendCssUrl("/css/filter.css");
+$webPage->appendCssUrl("/css/modification.css");
 
 
 foreach ($allTvShow as $tvShow) {
