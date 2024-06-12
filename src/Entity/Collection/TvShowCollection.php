@@ -28,4 +28,21 @@ SQL
 
         return $tvShow->fetchAll(PDO::FETCH_CLASS, TvShow::class);
     }
+
+    /** Méthode retournant un tableau contenant tous les shows tv
+     * d'un genre triés par ordre alphabétique.
+     * @return array
+     */
+    public static function findByGenreId(int $genreId): array
+    {
+        $tvShow = MyPdo::getInstance()->prepare(
+            <<<'SQL'
+SELECT genreId, tvShowId
+FROM tvshow_genre
+WHERE genreid = :id
+SQL
+        );
+        $tvShow->execute([':id' => $genreId]);
+        return $tvShow->fetchAll();
+    }
 }
