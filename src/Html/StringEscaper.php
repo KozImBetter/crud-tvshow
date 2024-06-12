@@ -6,12 +6,21 @@ namespace Html;
 
 trait StringEscaper
 {
-    /** Protéger les caractères spéciaux pouvant dégrader la page Web
-     * @param string|null $string $string
-     * @return string
-     */
-    public function escapeString(?string $string): string
+    public function escapeString(?string $string): ?string
     {
+        if ($string == null) {
+            return "";
+        }
         return htmlspecialchars($string, ENT_HTML5 | ENT_QUOTES);
+    }
+
+    public function stripTagsAndTrim(?string $string): ?string
+    {
+        if ($string == null) {
+            return "";
+        } else {
+            $string = strip_tags($string);
+            return trim($string);
+        }
     }
 }
